@@ -1,0 +1,129 @@
+/* Inherits from globals.css — page-container, page-header etc. */
+
+.page-container {
+  padding: 110px 2rem 5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: calc(100vh - 280px);
+}
+
+/* ── Page Header ── */
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+/* Glowing underline decoration */
+.page-header::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  margin: 1.5rem auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+}
+
+.page-title {
+  font-family: var(--font-orbitron);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--muted-foreground);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── About Cards ── */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.about-card {
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+/* Neon left border accent */
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Corner grid decoration */
+.about-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 80px; height: 80px;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 12px 12px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(var(--primary-rgb), 0.4);
+  box-shadow:
+    0 0 0 1px rgba(var(--primary-rgb), 0.1),
+    0 12px 40px rgba(var(--primary-rgb), 0.1);
+}
+
+.about-card:hover::before {
+  opacity: 1;
+}
+
+.about-card:hover::after {
+  opacity: 1;
+}
+
+.about-card h2 {
+  font-family: var(--font-orbitron);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.about-card p {
+  color: var(--muted-foreground);
+  line-height: 1.85;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 90px 1rem 3rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+}

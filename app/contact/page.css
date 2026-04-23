@@ -1,0 +1,103 @@
+@import '../about/page.css';
+
+/* ─────────────────────────────────────────
+   CONTACT PAGE — Futuristic
+───────────────────────────────────────── */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.contact-info h2 {
+  font-family: var(--font-orbitron);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.contact-sub {
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* ── Info Cards ── */
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 14px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Left neon accent bar */
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(var(--primary-rgb), 0.35);
+  box-shadow:
+    0 0 0 1px rgba(var(--primary-rgb), 0.08),
+    0 8px 30px rgba(var(--primary-rgb), 0.08);
+}
+
+.info-card:hover::before {
+  transform: scaleY(1);
+}
+
+.info-icon {
+  color: var(--primary);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: filter 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+  filter: drop-shadow(0 0 6px rgba(var(--primary-rgb), 0.7));
+}
+
+.info-card h3 {
+  font-family: var(--font-orbitron);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.info-card p {
+  color: var(--muted-foreground);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

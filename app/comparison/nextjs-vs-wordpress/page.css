@@ -1,0 +1,269 @@
+.comparison-page {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-family: var(--font-orbitron);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  margin-bottom: 3rem;
+}
+
+.back-link:hover {
+  color: var(--primary);
+  transform: translateX(-5px);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-title {
+  font-family: var(--font-orbitron);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.page-subtitle {
+  color: var(--muted-foreground);
+  font-size: 1.2rem;
+  max-width: 800px;
+  line-height: 1.6;
+  margin: 0 auto 2rem auto;
+}
+
+.center-line {
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.6);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  border-radius: 2px;
+}
+
+.comparison-intro {
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  color: var(--foreground);
+}
+
+.comparison-intro p {
+  margin-bottom: 1.5rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.compare-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-card:hover {
+  transform: translateY(-5px);
+}
+
+.nextjs-card:hover {
+  border-color: rgba(var(--primary-rgb), 0.5);
+  box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.15);
+}
+
+.wp-card:hover {
+  border-color: rgba(#21759b, 0.5); /* Blue */
+  box-shadow: 0 15px 40px rgba(33, 117, 155, 0.15);
+}
+
+.compare-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(var(--card-border), 0.5);
+}
+
+.icon-wrapper {
+  margin: 0 auto 1.5rem auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.primary-glow {
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+}
+
+.secondary-glow {
+  background: rgba(33, 117, 155, 0.1); /* WP Blue */
+  color: #21759b;
+  border: 1px solid rgba(33, 117, 155, 0.3);
+}
+
+.compare-header h2 {
+  font-family: var(--font-orbitron);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.primary-badge {
+  background: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary);
+}
+
+.secondary-badge {
+  background: rgba(33, 117, 155, 0.15);
+  color: #21759b;
+}
+
+.compare-summary {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.feature-block {
+  margin-bottom: 2rem;
+}
+
+.feature-block h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-orbitron);
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  color: var(--foreground);
+}
+
+.nextjs-card .feature-block h4 { color: var(--primary); }
+.wp-card .feature-block h4 { color: #21759b; }
+
+.feature-block p {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.pros-list {
+  margin-top: 3rem;
+  padding-left: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+  border-radius: 10px;
+  list-style-type: square;
+}
+
+.pros-list li {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+.nextjs-card .pros-list { border-left: 4px solid var(--primary); }
+.wp-card .pros-list { border-left: 4px solid #21759b; }
+
+.conclusion-block {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+}
+
+.conclusion-block h2 {
+  font-family: var(--font-orbitron);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--accent);
+}
+
+.conclusion-block p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.conclusion-block p:last-child {
+  margin-bottom: 0;
+}
+
+.service-cta {
+  background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.05) 0%, transparent 70%);
+  border-top: 1px solid rgba(var(--accent-rgb), 0.2);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.service-cta h2 {
+  font-family: var(--font-orbitron);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.deploy-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--primary);
+  color: #000;
+  text-decoration: none;
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.6);
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}

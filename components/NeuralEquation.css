@@ -1,0 +1,150 @@
+.neural-equation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 1rem;
+  margin: 0 auto 3rem auto;
+  max-width: 450px;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, rgba(var(--primary-rgb), 0.05) 0%, transparent 80%);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  overflow: hidden;
+}
+
+.equation-math-wrapper {
+  position: relative;
+  z-index: 2;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.equation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+}
+
+.eq-char {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  transition: transform 0.2s ease;
+  will-change: transform, filter;
+  padding: 0 0.1rem;
+}
+
+.eq-char:hover {
+  transform: scale(1.1) translateY(-2px);
+  z-index: 10;
+}
+
+.eq-char.operator {
+  color: var(--muted-foreground);
+  font-weight: 300;
+  cursor: default;
+}
+
+.eq-char.operator:hover {
+  transform: none;
+}
+
+.eq-char.output {
+  color: #7dd3fc;
+  text-shadow: 0 0 10px rgba(125, 211, 252, 0.5);
+}
+
+.eq-char.activation {
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  font-style: italic;
+}
+
+.eq-char.weight {
+  color: #3b82f6;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.eq-char.input {
+  color: #2563eb;
+  text-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+}
+
+.eq-char.bias {
+  color: #1d4ed8;
+  text-shadow: 0 0 10px rgba(29, 78, 216, 0.5);
+}
+
+/* Tooltip container to properly position without disrupting flow */
+.eq-tooltip-container {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.eq-tooltip {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--primary);
+  color: var(--foreground);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  font-family: var(--font-inter), sans-serif;
+  letter-spacing: normal;
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(5px);
+  font-weight: 500;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.2);
+  text-shadow: none;
+}
+
+.eq-char:hover .eq-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.equation-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(var(--primary-rgb), 0.08) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floating-math {
+  position: absolute;
+  font-family: serif;
+  font-size: 2rem;
+  color: var(--primary);
+  opacity: 0.1;
+  z-index: 1;
+  pointer-events: none;
+  font-style: italic;
+}
+
+.math-1 { top: 10%; left: 10%; font-size: 1.5rem; }
+.math-2 { bottom: 10%; right: 15%; font-size: 2rem; }
+.math-3 { top: 20%; right: 20%; font-size: 1.25rem; }
+
+@media (max-width: 768px) {
+  .neural-equation-container {
+    padding: 1rem;
+    max-width: 300px;
+  }
+}

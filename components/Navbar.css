@@ -1,0 +1,418 @@
+/* ─────────────────────────────────────────
+   NAVBAR — Futuristic Cyber Style
+───────────────────────────────────────── */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 1px 0 rgba(var(--primary-rgb), 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Top accent line */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(var(--primary-rgb), 0.6) 30%,
+    rgba(var(--secondary-rgb), 0.6) 70%,
+    transparent 100%
+  );
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ── Logo ── */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: var(--font-orbitron);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.logo-accent {
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Desktop Nav Links ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-links a:not(.cta-button) {
+  position: relative;
+  color: var(--muted-foreground);
+  transition: color 0.25s ease;
+  padding-bottom: 2px;
+}
+
+/* Cyber sweep underline */
+.nav-links a:not(.cta-button)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:not(.cta-button):hover {
+  color: var(--primary);
+}
+
+.nav-links a:not(.cta-button):hover::after {
+  transform: scaleX(1);
+}
+
+/* ── CTA Button ── */
+.cta-button {
+  position: relative;
+  background: transparent;
+  color: var(--primary) !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: var(--font-orbitron);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(var(--primary-rgb), 0.4);
+  overflow: hidden;
+  -webkit-text-fill-color: var(--primary);
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--primary-rgb), 0.08);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta-button:hover {
+  border-color: var(--primary);
+  color: var(--foreground) !important;
+  -webkit-text-fill-color: var(--foreground);
+  background: rgba(var(--primary-rgb), 0.12);
+  box-shadow:
+    0 0 12px rgba(var(--primary-rgb), 0.3),
+    inset 0 0 12px rgba(var(--primary-rgb), 0.05);
+}
+
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+/* ── Mobile Controls ── */
+.mobile-toggle-group {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-menu-btn {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  position: relative;
+}
+
+/* ── Mobile Drawer ── */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--background);
+  overflow: hidden;
+}
+
+/* Grid overlay inside drawer */
+.mobile-drawer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--font-orbitron);
+  z-index: 41;
+}
+
+.mobile-nav-links a {
+  transition: color 0.3s ease;
+  letter-spacing: 0.06em;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  color: var(--primary);
+  text-shadow: 0 0 20px rgba(var(--primary-rgb), 0.6);
+}
+
+.drawer-glow {
+  position: absolute;
+  width: 150vw;
+  height: 150vw;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(var(--primary-rgb), 0) 0%,
+    rgba(var(--secondary-rgb), 0.08) 40%,
+    rgba(var(--primary-rgb), 0.06) 60%,
+    rgba(var(--primary-rgb), 0) 100%
+  );
+  z-index: 39;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* ── Nav Dropdown (Desktop) ── */
+.nav-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem 0;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px; /* Bridge gap for hover */
+}
+
+/* Hover trigger */
+.nav-dropdown-container:hover .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown link items avoid the core sweep underline completely */
+.nav-dropdown a, 
+.nav-dropdown a:not(.cta-button)::after {
+  display: block;
+}
+.nav-dropdown a:not(.cta-button)::after {
+  display: none !important;
+}
+
+.nav-dropdown a {
+  padding: 0.6rem 1.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-dropdown a:hover {
+  color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.05);
+  padding-left: 2rem;
+}
+
+/* Divider to separate core services from comparison */
+.dropdown-divider {
+  height: 1px;
+  background: rgba(var(--border-color, 255, 255, 255), 0.1);
+  margin: 0.5rem 1rem;
+}
+
+.dropdown-highlight {
+  color: var(--accent) !important;
+}
+.dropdown-highlight:hover {
+  color: #fff !important;
+  background: rgba(var(--accent-rgb), 0.2) !important;
+}
+
+/* ── Desktop Chevron ── */
+.dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-chevron {
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown-container:hover .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Mobile Sub-nav Dropdown ── */
+.mobile-dropdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mobile-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-dropdown-trigger:hover,
+.mobile-dropdown-trigger:active {
+  color: var(--primary);
+  text-shadow: 0 0 20px rgba(var(--primary-rgb), 0.6);
+}
+
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Toggle class applied via JS in Navbar.tsx */
+.mob-dropdown-open {
+  margin-top: 1.5rem;
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Rotate chevron when open */
+.mobile-dropdown-container:has(.mob-dropdown-open) .mobile-chevron {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown a {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.dropdown-main,
+.mobile-dropdown-main {
+  font-weight: 700 !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-orbitron) !important;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-dropdown a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+}
+
+.mobile-highlight {
+  color: var(--accent) !important;
+}
+.mobile-highlight:hover {
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.8) !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-toggle-group {
+    display: flex;
+  }
+}
