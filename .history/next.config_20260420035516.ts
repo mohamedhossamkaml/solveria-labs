@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: "/solveria-labs",
-  assetPrefix: "/solveria-labs/",
+  output: 'export',
+  basePath: '/solveria-labs',
   images: {
     unoptimized: true,
   },
